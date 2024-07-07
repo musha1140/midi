@@ -59,13 +59,67 @@ The GSL Encryption Project is a web-based application designed to provide robust
    cd GSL-Encryption
    GSL-Encryption/
    ```
+## Dependencies
+ **install these libraries**:
+``` npm install tailwindcss postcss autoprefixer```
+## Create Tailwind Configuration Files:
+ **Create tailwind.config.js and postcss.config.js files in your project root directory.**
+ ```npm install tailwindcss postcss autoprefixer```
 
-
-**No additional dependencies are required beyond the included libraries at the top, which are irrelevent to the repo as it is using cdns.**
-(due to the static nature that is in this current repo)**
-
-
+**tailwind.config.js**
 ```
+module.exports = {
+  purge: ['./public/**/*.html', './src/**/*.js'],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+**postcss.config.js:**
+```
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+```
+## Create a src/styles.css file:
+**This file will import the Tailwind CSS base, components, and utilities.**
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+## Update package.json Scripts:
+**package.json:**
+```
+{
+  "scripts": {
+    "build:css": "npx tailwindcss build src/styles.css -o public/style.css"
+  }
+}
+```
+## Build Tailwind CSS:
+**Run the following command to build the Tailwind CSS file:**
+```
+npm run build:css
+```
+## Serve the Application:
+**Install http-server globally if you don't have it already:**
+```
+npm install -g http-server
+```
+**Serve the Application:**
+```
+http-server public
+```
+**Alternatively, you can use any other static file server or open the index.html file directly in your browser.**
 project-root/
 │
 ├── public/
@@ -75,12 +129,14 @@ project-root/
 ├── src/
 │   ├── commandHandler.js
 │   ├── logic.js
+│   ├── styles.css // From tailwind
 │
 ├── index.js
 ├── tailwind.config.js
 ├── postcss.config.js
 ├── package.json
 ├── package-lock.json
+
 ```
 ## Viewing Mermaid Diagram
 To view the following logic portrayed in Mermaid , you can use the Mermaid Live Editor. Follow these steps:
@@ -91,7 +147,6 @@ To view the following logic portrayed in Mermaid , you can use the Mermaid Live 
 4. The editor will render the diagram, allowing you to visualize the project structure and terminal logic.
 ```
 
-```
 Diagram for Terminal Logic
 ```mermaid
 mindmap
@@ -193,7 +248,7 @@ mindmap
      - Plays the MIDI file.
      - Updates the gameboard visualization.
 
-       
+       If you just want to use this repo and have some security I recommend using this structure instead:
 **Static (for future) as it stands incomplete right now:**
 ```
 GSL-Encryption/
