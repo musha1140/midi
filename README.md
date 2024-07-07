@@ -44,6 +44,7 @@ All current and intended (in privately used repos for now and not published on G
 - ## Overview
 The GSL Encryption Project is a web-based application designed to provide robust encryption and decryption functionalities, along with an interactive user interface for various cryptographic tasks. This project leverages modern web technologies and integrates music selection features to enhance user experience.
 
+
 ## Features
 - **Text Encryption and Decryption**: Encrypt and decrypt text input using advanced algorithms.
 - **File Encryption**: Encrypt files uploaded by the user.
@@ -53,15 +54,34 @@ The GSL Encryption Project is a web-based application designed to provide robust
 
 ## Installation
 1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/musha1140/key-midi.git
+   ```
+   git clone https://github.com/musha1140/midi.git
    cd GSL-Encryption
+   GSL-Encryption/
    ```
 
 
 **No additional dependencies are required beyond the included libraries at the top, which are irrelevent to the repo as it is using cdns.**
 (due to the static nature that is in this current repo)**
 
+
+```
+project-root/
+│
+├── public/
+│   ├── index.html
+│   ├── style.css
+│
+├── src/
+│   ├── commandHandler.js
+│   ├── logic.js
+│
+├── index.js
+├── tailwind.config.js
+├── postcss.config.js
+├── package.json
+├── package-lock.json
+```
 ## Viewing Mermaid Diagram
 To view the following logic portrayed in Mermaid , you can use the Mermaid Live Editor. Follow these steps:
 
@@ -70,98 +90,73 @@ To view the following logic portrayed in Mermaid , you can use the Mermaid Live 
 3. Paste the code into the Mermaid Live Editor.
 4. The editor will render the diagram, allowing you to visualize the project structure and terminal logic.
 ```
-graph TD
-  %% File Structure
-  A[GSL-Encryption] --> B[index.html # Main HTML file]
-  A --> C[style.css # Custom styles]
-  A --> D[logic.js # Main JavaScript logic]
-  A --> E[README.md # Project readme]
-  A --> F[assets/ # Directory for assets (images, audio files, etc.)]
-  F --> G[song1.mp3]
-  F --> H[song2.mp3]
-  F --> I[...]
-  A --> J[libs/ # Directory for external libraries]
-  J --> K[jquery.min.js]
-  J --> L[tone.min.js]
-  J --> M[midi.min.js]
 
-  %% Terminal Logic
-  subgraph Terminal
-    N[Console] --> O[Welcome Message]
-    O --> P[User Input]
-    P --> Q{Command}
-    Q --> R[help: Show help message]
-    Q --> S[clear: Clear the console]
-    Q --> T[list songs: List available songs]
-    Q --> U[play <song_number>: Play specified song]
-    Q --> V[encrypt <message>: Encrypt message]
-    Q --> W[decrypt: Decrypt message]
-    Q --> X[upload: Upload a .slayy file to decrypt]
-    R --> N
-    S --> N
-    T --> Y[Show Available Songs]
-    Y --> N
-    U --> Z[Fetch MIDI File]
-    Z --> AA[Parse MIDI File]
-    AA --> AB[Play MIDI File]
-    AB --> AC[Update Gameboard]
-    V --> AD[Convert Message to Binary]
-    AD --> AE[XOR with ECC]
-    AE --> AF[Visualize Grid]
-    W --> AG[Convert Binary to Message]
-    AG --> N
-    X --> AH[Handle File Upload]
-    AH --> AG
-  end
-
-
-More complex Terminal "logic"
-graph TD
-    subgraph UI (Console)
-        A[Input Area]
-        B[Grid Visualization]
-        C[Binary Canvas]
-        D[Matrix Display]
-        E[Console Output]
-    end
-
-    A --> |Enter Command| P[handleCommand (commandHandler.js)]
-
-    subgraph commandHandler.js
-        P --> |"help"| R[displayMessage("Available commands:...")] --> E
-        P --> |"clear"| S[displayMessage("clear")] --> E
-        P --> |"list songs"| T[listSongs()] --> E
-        P --> |"play [song number]"| U[startProcess(songNumber)]
-        P --> |"upload"| V[handleFileUpload()]
-        P --> |"save"| W[saveBinaryAsFile()]
-        P --> |"encrypt" [message]| II[handleEncryption(message)]
-        P --> |"decrypt" [last green position]| J[handleDecryption(position)]
-        P --> |Other| X[displayMessage("Unknown command...")] --> E
-    end
-
-    subgraph index.js (Utility Functions)
-        U[startProcess] --> K[loadMidi]
-        K --> |Success| M(Extract MIDI Notes)
-        K --> |Error| EE[displayMessage("Error...")] --> E
-        L[handleFiles] --> |MIDI File| M
-        II[handleEncryption] --> N(Convert Text to Binary)
-        N --> HH(AES Encryption) --> O(Create Grid Visualization (B))
-        O --> PP(Play Notes with Variations) --> Q(Calculate Frequency Range)
-        PP --> R(Store Encrypted Data)
-        Q --> S(Display Artistic Shape (C))
-        S --> T{Prompt for Download (E)}
-        T --> |Yes| V[saveBinaryAsFile] --> V[End]
-        T --> |No| V
-        J[handleDecryption] --> W(Check Last Green Position or .slayy File)
-        W --> |Incorrect| BB[displayMessage("Error...")] --> E
-        W --> |Correct or .slayy File| X(Extract Binary Data)
-        X --> GG(AES Decryption) --> Y(Convert to Text) --> EE(XOR with Original MIDI Binary)
-        EE --> FF(Transition to Grid) --> Z(Display Grid Animation) --> AA(Play Encrypted Music) --> V
-    end
-
-    B, C, D --> E
 ```
-Use 
+Diagram for Terminal Logic
+```mermaid
+mindmap
+  root((Input string))
+    UI
+      Input Area
+      Grid Visualization
+      Binary Canvas
+      Matrix Display
+      Console Output
+    commandHandler.js
+      handleCommand
+        help
+          Available commands
+        clear
+          displayMessage("clear")
+        list songs
+          listSongs
+        play [song number]
+          startProcess(songNumber)
+        upload
+          handleFileUpload
+        save
+          saveBinaryAsFile
+        encrypt [message]
+          handleEncryption(message)
+        decrypt [last green position]
+          handleDecryption(position)
+        Other
+          displayMessage("Unknown command...")
+    index.js (Utility Functions)
+      startProcess
+        loadMidi
+          Success
+            Extract MIDI Notes
+          Error
+            displayMessage("Error...")
+      handleFiles
+        MIDI File
+          Extract MIDI Notes
+      handleEncryption
+        Convert Text to Binary
+          AES Encryption
+            Create Grid Visualization
+              Play Notes with Variations
+                Calculate Frequency Range
+                  Store Encrypted Data
+                  Display Artistic Shape
+                    Prompt for Download
+                      Yes
+                        saveBinaryAsFile
+                      No
+      handleDecryption
+        Check Last Green Position or .slayy File
+          Incorrect
+            displayMessage("Error...")
+          Correct or .slayy File
+            Extract Binary Data
+              AES Decryption
+                Convert to Text
+                  XOR with Original MIDI Binary
+                    Transition to Grid
+                      Display Grid Animation
+                        Play Encrypted Music
+```
 ### Explanation of Logic:
 
 1. **File Structure**:
