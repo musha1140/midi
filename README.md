@@ -120,7 +120,7 @@ npm install -g http-server
 http-server public
 ```
 **Alternatively, you can use any other static file server or open the index.html file directly in your browser.**
-project-root/
+```project-root/
 │
 ├── public/
 │   ├── index.html
@@ -136,8 +136,8 @@ project-root/
 ├── postcss.config.js
 ├── package.json
 ├── package-lock.json
-
 ```
+
 ## Viewing Mermaid Diagram
 To view the following logic portrayed in Mermaid , you can use the Mermaid Live Editor. Follow these steps:
 
@@ -145,9 +145,7 @@ To view the following logic portrayed in Mermaid , you can use the Mermaid Live 
 2. Copy the Mermaid diagram code below.
 3. Paste the code into the Mermaid Live Editor.
 4. The editor will render the diagram, allowing you to visualize the project structure and terminal logic.
-```
 
-Diagram for Terminal Logic
 ```mermaid
 mindmap
   root((Input string))
