@@ -53,7 +53,7 @@ The GSL Encryption Project is a web-based application designed to provide robust
 ## Installation
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/musha1140/key-midi.git
+   git clone https://github.com/musha1140/midi.git
    cd GSL-Encryption
    ```
 
