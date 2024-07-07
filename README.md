@@ -267,3 +267,4 @@ GSL-Encryption/
     └── midi.min.js
 ```
 Please use the intended design to create a more polished version, or to use the idea to help better your own idea.
+https://key-midi-u.vercel.app/ is what currently is used, static.
