@@ -39,7 +39,7 @@ All current and intended (in privately used repos for now and not published on G
 
 ## Technologies Used
 # GSL Encryption Project was based on:
-## Slayy stenophagryhy
+## Slayy steganography
 - [**The SLAYY Q Key**](https://slayy1.vercel.app) provides a tool for encoding and decoding messages within images. Inspired by the functionalities and design of SLAYY, this project enables secure message transmission through steganography.
 - ## Overview
 The GSL Encryption Project is a web-based application designed to provide robust encryption and decryption functionalities, along with an interactive user interface for various cryptographic tasks. This project leverages modern web technologies and integrates music selection features to enhance user experience.
