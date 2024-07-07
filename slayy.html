@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSL</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div class="container mx-auto p-4">
+        <header class="mb-4 text-center">
+            <h1 class="text-3xl font-bold">GSL Encryption</h1>
+        </header>
+        <main class="flex-grow w-full flex flex-col items-center">
+
+                <div id="gameboard"></div>
+                <canvas id="binaryCanvas"></canvas>
+                <div id="matrix"></div>
+            </section>   <section class="content text-center">
+            <div class="controls mb-4">
+
+                <select id="songNumber" class="p-2 bg-gray-700 rounded text-white mb-2">
+                    <option value="">Select a song</option>
+                    <option value="1">Tetris - A Theme</option>
+                    <option value="2">Westworld Theme</option>
+                    <option value="3">Corn Chase Intersteller</option>
+                    <option value="4">Happy Violence</option>
+                    <option value="5">Dancing Queen</option>
+                    <option value="6">Good Riddance (Time of Your Life)</option>
+                    <option value="7">L's Theme</option>
+                    <option value="8">Bohemian Rhapsody</option>
+                </select>
+
+            </div>
+        </main> <button class="btn btn-encrypt p-2 bg-green-500 rounded text-white mb-2" id="encryptButton">Encrypt</button>
+      <button class="btn btn-decrypt p-2 bg-red-500 rounded text-white mb-2" id="decodeButton">Revert to Normal</button>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.40/Tone.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tonejs/midi@2.0.26/build/Midi.min.js"></script>
+    <script src="logic.js">
+      </script>
+</body>
+  <input type="file" id="fileInput" style="display: none;">
+  <button class="btn btn-encrypt p-2 bg-gray-800 rounded text-white mb-2" id="FileDrop">Drop File</button> <footer class="mt-4 text-center w-full">
+      <input type="text" id="textInput" placeholder="Enter text to encrypt" class="p-2 bg-gray-700 rounded text-white w-full max-w-lg mb-4">
+      <p>GASLIGHTING.</p>
+  </footer>
+</html>

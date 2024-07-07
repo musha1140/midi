@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSL Encryption</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center">
+    <div class="container mx-auto p-4">
+        <header class="mb-4 text-center">
+            <h1 class="text-4xl font-bold text-green-500">GSL</h1>
+        </header>
+        <main class="flex-grow w-full flex flex-col items-center">
+            <div id="gameboard" class="grid grid-cols-4 gap-2 mb-4"></div>
+            <div class="relative w-full max-w-md h-40">
+                <canvas id="binaryCanvas" class="absolute inset-0 z-10"></canvas>
+                <div id="matrix" class="absolute inset-0 grid grid-cols-4 gap-1 z-20"></div>
+            </div>
+        </main>
+        <section class="content text-center mt-4">
+            <div class="controls mb-4">
+                <label for="songNumber" class="block mb-2">Select a Song:</label>
+                <select id="songNumber" name="songNumber" class="p-2 bg-gray-800 rounded mb-2">
+                    <option value="">Select a song [ability to crop coming soon]</option>
+                    <option value="1">Tetris - A Theme</option>
+                    <option value="2">Westworld Theme</option>
+                    <option value="3">Corn Chase Intersteller</option>
+                    <option value="4">Happy Violence</option>
+                    <option value="5">Dancing Queen</option>
+                    <option value="6">Good Riddance (Time of Your Life)</option>
+                    <option value="7">L's Theme</option>
+                    <option value="8">Bohemian Rhapsody</option>
+                    <option value="9">Only Time</option>
+                    <option value="10">I need a hero</option>
+                </select>
+            </div>
+            <button class="btn btn-encrypt p-2 bg-green-500 rounded mb-2" id="encryptButton">Encrypt</button>
+            <button class="btn btn-decrypt p-2 bg-red-500 rounded mb-2" id="decryptButton">Revert to Normal</button>
+            <button class="btn btn-file p-2 bg-gray-800 rounded mb-2" id="FileDrop">Drop File</button>
+            <input type="file" id="fileInput" name="fileInput" class="hidden">
+        </section>
+        <footer class="mt-4 text-center w-full">
+            <label for="textInput" class="block mb-2">Text to Encrypt:</label>
+            <input type="text" id="textInput" name="textInput" placeholder="Enter text to encrypt, decrypt the binary output for the actual encryption." class="p-2 bg-darkgray-800 rounded w-full max-w-lg mb-4">
+            <a href="https://github.com/musha1140/key-midi/blob/main/README.md" class="text-green-500 underline">GASLIGHTING</a>
+            <button onclick="location.reload();" class="ml-2 p-1 bg-black-500 rounded">⟳</button>
+            <button class="ml-2 p-1 bg-blue-500 rounded" title="Drag the binary xor onto the the text box to decrypt. You can also save the image to share it later to decrypt.">?</button>
+        </footer>
+    </div>
+
+    <div id="overlay" class="overlay"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.40/Tone.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tonejs/midi@2.0.26/build/Midi.min.js"></script>
+    <script src="logic.js"></script>
+</body>
+
+</html>
