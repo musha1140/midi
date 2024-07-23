@@ -51,6 +51,7 @@ The GSL Encryption Project is a web-based application designed to provide robust
 - **Interactive Canvas**: Visualize binary data on an HTML5 canvas.
 - **Song Selection**: Choose from a list of songs to play during encryption/decryption processes.
 - **Responsive Design**: User-friendly interface adaptable to various devices.
+- **WPM Integration**: Calculates Words Per Minute (WPM) during typing and incorporates it into the encryption process.
 
 ## Installation
 1. **Clone the Repository**:
@@ -247,27 +248,6 @@ mindmap
   - Plays the MIDI file.
   - Updates the gameboard visualization.
 
-## Static (for future) as it stands incomplete right now
-```
-GSL-Encryption/
-│
-├── index.html # Main HTML file
-├── style.css # Custom styles
-├── logic.js # Main JavaScript logic
-├── README.md # Project readme
-│
-├── assets/ # Directory for assets (images, audio files, etc.)
-│ ├── song1.mid - ToneJS Midi
-│ ├── song2.wav - FFT + Recompile to "simulate midi"
-│ └── song3.mp3 - FFT + Using mathJS and reverse engineering the binary files (neondb, mongodb via replit's sql)
-│
-└── libs/ # Directory for external libraries
-├── jquery.min.js
-├── tone.min.js
-└── midi.min.js
-```
-
-Please use the intended design to create a more polished version or to use the idea to help better your own idea.
 
 ## Acknowledgements
 - This project takes inspiration from Ghidra's **Sleigh** for its robust and versatile approach to data encryption and steganography.
