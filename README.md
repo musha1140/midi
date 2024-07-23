@@ -144,7 +144,7 @@ To view the following logic portrayed in Mermaid , you can use the Mermaid Live 
 1. Go to the [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor/).
 2. Copy the Mermaid diagram code below.
 3. Paste the code into the Mermaid Live Editor.
-4. The editor will render the diagram, allowing you to visualize the project structure and terminal logic.
+4. The editor will render the diagram, allowing you to visualize the project structure and terminal logic. -- If not visible here
 
 ```mermaid
 mindmap
@@ -210,43 +210,70 @@ mindmap
                       Display Grid Animation
                         Play Encrypted Music
 ```
-### Explanation of Logic:
+## Visualization of Logic
+![Image](https://kappa.lol/nZ38D) *(Proof of concept, though not implemented publicly)*
 
-1. **File Structure**:
-   - **index.html**: The main HTML file.
-   - **style.css**: Custom styles.
-   - **logic.js**: Main JavaScript logic.
-   - **README.md**: Project readme.
-   - **assets/**: Directory for assets (images, audio files, etc.).
-   - **libs/**: Directory for external libraries (jQuery, Tone.js, Midi.js).
+### File Structure
+- **index.html**: The main HTML file.
+- **style.css**: Custom styles.
+- **logic.js**: Main JavaScript logic.
+- **README.md**: Project readme.
+- **assets/**: Directory for assets (images, audio files, etc.).
+- **libs/**: Directory for external libraries (jQuery, Tone.js, Midi.js).
 
-2. **Terminal Logic**:
-   - **Console**: The terminal console where user interacts.
-   - **Welcome Message**: Initial message displayed to the user.
-   - **User Input**: Captures input from the user.
-   - **Command**: Determines the action based on user input.
-     - **help**: Shows a help message.
-     - **clear**: Clears the console.
-     - **list songs**: Lists available songs.
-     - **play <song_number>**: Plays the specified song.
-     - **encrypt <message>**: Encrypts the user-provided message.
-     - **decrypt**: Decrypts the message.
-     - **upload**: Handles file upload for decryption.
-   - **Encrypt Message Flow**:
-     - Convert the message to binary.
-     - XOR with ECC.
-     - Visualize the resulting grid.
-   - **Decrypt Message Flow**:
-     - Convert binary back to message.
-   - **File Upload**:
-     - Handles the upload and processing of .slayy files for decryption.
-   - **Play Song**:
-     - Fetches the MIDI file.
-     - Parses the MIDI file.
-     - Plays the MIDI file.
-     - Updates the gameboard visualization.
+### Terminal Logic
+- **Console**: The terminal console where the user interacts.
+- **Welcome Message**: Initial message displayed to the user.
+- **User Input**: Captures input from the user.
+- **Command**: Determines the action based on user input.
+  - **help**: Shows a help message.
+  - **clear**: Clears the console.
+  - **list songs**: Lists available songs.
+  - **play <song_number>**: Plays the specified song.
+  - **encrypt <message>**: Encrypts the user-provided message.
+  - **decrypt**: Decrypts the message.
+  - **upload**: Handles file upload for decryption.
+- **Encrypt Message Flow**:
+  - Convert the message to binary.
+  - XOR with ECC.
+  - Visualize the resulting grid.
+- **Decrypt Message Flow**:
+  - Convert binary back to the message.
+- **File Upload**:
+  - Handles the upload and processing of .slayy files for decryption.
+- **Play Song**:
+  - Fetches the MIDI file.
+  - Parses the MIDI file.
+  - Plays the MIDI file.
+  - Updates the gameboard visualization.
 
-       If you just want to use this repo and have some security I recommend using this structure instead:
+## Static (for future) as it stands incomplete right now
+```
+GSL-Encryption/
+│
+├── index.html # Main HTML file
+├── style.css # Custom styles
+├── logic.js # Main JavaScript logic
+├── README.md # Project readme
+│
+├── assets/ # Directory for assets (images, audio files, etc.)
+│ ├── song1.mid - ToneJS Midi
+│ ├── song2.wav - FFT + Recompile to "simulate midi"
+│ └── song3.mp3 - FFT + Using mathJS and reverse engineering the binary files (neondb, mongodb via replit's sql)
+│
+└── libs/ # Directory for external libraries
+├── jquery.min.js
+├── tone.min.js
+└── midi.min.js
+```
+
+Please use the intended design to create a more polished version or to use the idea to help better your own idea.
+
+## Acknowledgements
+- This project takes inspiration from Ghidra's **Sleigh** for its robust and versatile approach to data encryption and steganography.
+- [**The SLAYY Q Key**](https://slayy1.vercel.app)  steganography was created as my first step into the pattern and encryption programming space. 
+
+If you just want to use this repo and have some security I recommend using this structure instead:
 **Static (for future) as it stands incomplete right now:**
 ```
 GSL-Encryption/
@@ -267,4 +294,4 @@ GSL-Encryption/
     └── midi.min.js
 ```
 Please use the intended design to create a more polished version, or to use the idea to help better your own idea.
-https://key-midi-u.vercel.app/ is what currently is used, static.
+https://www.gas-lighting.com is my website (old, used to run a live service Gnome enviroment as an experiment, so it is just sitting there)
